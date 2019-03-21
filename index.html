@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Play Rock, Paper, Scissors in the Console</title>
+  </head>
+  <body>
+    <script>
+
+      function game(){
+        let playerScore = 0
+        let computerScore = 0
+
+        while (playerScore < 5 && computerScore < 5){
+          let results = playRound(askPlayerToChoose(), computerPlay())
+
+          playerScore += results[0]
+          computerScore += results[1]
+          console.log('player: '+ playerScore + ' | computer: '+ computerScore)
+        }
+
+        console.log("We have a winner!");
+      }
+
+      function askPlayerToChoose(){
+        let playerChoice = prompt('Rock, Paper, or Scissors?');
+
+        if (playerChoice === null || playerChoice == ""){
+          playerChoice = computerPlay();
+          console.log("We chose " + playerChoice + " for you.");
+          return playerChoice;
+        }
+
+        let firstLetter = playerChoice[0];
+
+        if (firstLetter == "R" || firstLetter == "r"){
+          return "rock";
+        }
+        else if (firstLetter == "P" || firstLetter == "p"){
+          return "paper";
+        }
+        else if (firstLetter == "S" || firstLetter == "s"){
+          return "scissors";
+        }
+        else return askPlayerToChoose();
+      }
+
+      function playRound(playerSelection, computerSelection){
+        console.log("You chose " + playerSelection + " | They chose "+ computerSelection);
+        if (playerSelection === computerSelection) {
+          return [0,0];
+        }
+        else if (playerSelection == "rock"){
+          if (computerSelection == "paper") return [0,1];
+          else if (computerSelection == "scissors") return [1,0];
+        }
+        else if (playerSelection == "paper"){
+          if (computerSelection == "rock") return [1,0];
+          else if (computerSelection == "scissors") return [0,1];
+        }
+        else if (playerSelection == "scissors"){
+          if (computerSelection == "rock") return [0,1];
+          else if (computerSelection == "paper") return [1,0];
+        }
+      }
+
+      function computerPlay(){
+        let choice = oneTwoOrThree();
+        if (choice == 1) return 'rock';
+        else if (choice == 2) return 'paper';
+        else return 'scissors';
+      }
+
+      function oneTwoOrThree(){
+        return Math.floor(Math.random() * 3) + 1;
+      }
+    </script>
+  </body>
+</html>
