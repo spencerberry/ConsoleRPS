@@ -13,12 +13,28 @@ a{
 button{
   appearance: none;
   -moz-appearance: none;
-  border: none;
+  border: 1px solid #8549f2;
+  border-radius: 1em;
+  padding: 1em;
   margin: .2em;
   font-size: 3em;
-  box-shadow: 2px 4px #9BA9DD;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.1),
+    inset 0 -.25em 0 rgba(0,0,0,.25),
+    0 .25em .25em rgba(0,0,0,.05);
   background-color: #180840;
-  color: #8549f2; 
+  color: #8549f2;
+  display: inline-block;
+}
+
+button:active{
+  background-color: #8549f2;;
+  color: #180840;
+  border-color: #180840;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.2),
+    inset 0 2px 0 hsla(0,0%,100%,.1),
+    inset 0 .25em .5em rgba(0,0,0,.05);
+    margin-top: .5em;
+    padding-bottom: .5em;
 }
 
 .hidden{
