@@ -21,7 +21,7 @@ function pressedButton(e){
   if (playerScore >= 5){
     playerScore = 0;
     computerScore = 0;
-    message.textContent = "🙌🎉✨"
+    message.textContent = "🙌🎉✨";
   }
   else if (computerScore >= 5){
     playerScore = 0;
